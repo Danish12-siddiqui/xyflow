@@ -62,6 +62,9 @@ import MovingHandles from '../examples/MovingHandles';
 import DetachedHandle from '../examples/DetachedHandle';
 import ZIndexMode from '../examples/ZIndexMode';
 import Middlewares from '../examples/Middlewares';
+import StreamQuery from '../examples/StreamQuery';
+import CollaborativeCanvas from '../examples/CollaborativeCanvas';
+import ChatCanvas from '../examples/ChatCanvas';
 
 export interface IRoute {
   name: string;
@@ -389,6 +392,21 @@ const routes: IRoute[] = [
     name: 'zIndexMode',
     path: 'z-index-mode',
     component: ZIndexMode,
+  },
+  {
+    name: 'Stream Query',
+    path: 'stream-query',
+    component: StreamQuery,
+  },
+  {
+    name: 'Collaborative Canvas',
+    path: 'collaborative-canvas',
+    component: CollaborativeCanvas,
+  },
+  {
+    name: 'Chat Canvas',
+    path: 'chat-canvas',
+    component: ChatCanvas,
   },
 ];
 

@@ -4,8 +4,10 @@ import routes from './routes';
 import GenericTestRoutes from '../generic-tests';
 import Basic from '../examples/Basic';
 import Header from './header';
+import { ColorModeProvider } from './ColorModeContext';
 
 export default () => (
+  <ColorModeProvider>
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Navigate to="/examples" />} />
@@ -18,4 +20,5 @@ export default () => (
       <Route path="tests/generic/*" element={<GenericTestRoutes />} />
     </Routes>
   </BrowserRouter>
+  </ColorModeProvider>
 );

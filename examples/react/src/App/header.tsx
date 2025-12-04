@@ -2,15 +2,21 @@ import { useEffect, useState } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 import routes from './routes';
+import { useColorMode } from './ColorModeContext';
 
 export default function Header() {
   const location = useLocation();
   const navigate = useNavigate();
+  const { colorMode, setColorMode } = useColorMode();
 
   const pathParts = location.pathname.split('/').filter(Boolean);
   const initialExample = pathParts.length > 1 ? pathParts[1] : 'basic';
 
   const [currentPath, setCurrentPath] = useState(initialExample);
+
+  const toggleTheme = () => {
+    setColorMode(colorMode === 'light' ? 'dark' : 'light');
+  };
 
   useEffect(() => {
     const name = routes.find((route) => route.path === currentPath)?.name;
@@ -35,6 +41,9 @@ export default function Header() {
             </option>
           ))}
         </select>
+        <button onClick={toggleTheme} className="theme-toggle">
+          {colorMode === 'light' ? 'Dark Mode' : 'Light Mode'}
+        </button>
       </header>
       <Outlet />
     </>
